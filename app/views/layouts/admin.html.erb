@@ -14,7 +14,11 @@
        <%= render 'common/flashes'%>
        <div class="row">
           <div class="col-md-2">
-              sidebar
+              <ul class="nav nav-pills nav-stacked" style="max-width:300px; padding-top:20px;">
+                <li class="active text-center">
+                  <%= link_to("jobs",admin_jobs_path,method: :get)%>
+                </li>
+              </ul>
           </div>
 
           <div class="col-md-10">

@@ -23,11 +23,7 @@
         <td><%= simple_format(job.description)%></td>
         <td><%= job.created_at%></td>
         <td>
-           <%if job.is_hidden%>
-              <label class="label label-warning">未发布</label>
-           <% else %>
-              <label class="label label-success">已发布</label>
-           <% end %>
+           <%= render_job_status(job)%>
         </td>
         <td>
           <% if current_user.admin?%>
