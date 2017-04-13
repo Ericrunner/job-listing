@@ -1,0 +1,8 @@
+<div class="container-fluid">
+  <h2>申请职位：<%= @job.title%></h2>
+  <%= simple_form_for [@job,@resume] do |f|%>
+    <%= f.input :content,label:"上传简历",input_html:{class: "form-control"}%>
+    <%= f.input :attachment%>
+    <%= f.submit '提交'%>
+  <% end %>
+</div>
