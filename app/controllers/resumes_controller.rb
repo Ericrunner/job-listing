@@ -1,8 +1,5 @@
 class ResumesController < ApplicationController
 before_action :authenticate_user!
-  def index
-
-  end 
   def new
     @job=Job.find(params[:job_id])
     @resume=Resume.new
@@ -10,8 +7,10 @@ before_action :authenticate_user!
   def create
     @job=Job.find(params[:job_id])
     @resume=Resume.new(resume_params)
+    @resume.job=@job
+    @resume.user= current_user
     if @resume.save
-       redirect_to root_path
+       redirect_to jobs_path
     else
        render :new
     end
@@ -19,6 +18,6 @@ before_action :authenticate_user!
 private
 
 def resume_params
-   params.require(:resume).permit(:content,:attachment)
+   params.require(:resume).permit(:user_id,:job_id,:content,:attachment)
 end
 end
