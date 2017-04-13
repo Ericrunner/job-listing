@@ -1,0 +1,4 @@
+<div class="container-fluid">
+  <h2>应聘职位:<%= @job.title%></h2>
+  <%= render :partial => "resume", :collection => @resumes, :as => :resume %>
+</div>

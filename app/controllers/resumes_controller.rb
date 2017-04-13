@@ -18,6 +18,6 @@ before_action :authenticate_user!
 private
 
 def resume_params
-   params.require(:resume).permit(:user_id,:job_id,:content)
+   params.require(:resume).permit(:user_id,:job_id,:content,:attachment)
 end
 end
